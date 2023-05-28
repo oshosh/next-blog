@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 function Header() {
   return (
-    <header className='flex justify-between items-center p-4 bg-slate-300'>
+    <header className='flex justify-between items-center p-4'>
       <Link href='/'>
-        <h1>OSH's Blog</h1>
+        <h1 className='font-bold text-3xl'>OSH's Blog</h1>
       </Link>
       <nav className='flex space-x-4'>
         <Link href='/'>home</Link>

@@ -1,8 +1,16 @@
+import Posts from '@/components/Posts';
+import Profile from '@/components/Profile';
+import { getPosts } from 'service/posts';
 
-export default function Home() {
+async function HomePage() {
+  const posts = (await getPosts()).reverse();
+
   return (
-    <main className="bg-gray-500">
-      Main
-    </main>
-  )
+    <>
+      <Profile />
+      <Posts posts={posts} />
+    </>
+  );
 }
+
+export default HomePage;
