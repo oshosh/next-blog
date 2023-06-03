@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Open_Sans } from 'next/font/google';
+import 'react-multi-carousel/lib/styles.css';
 import './globals.css';
 import Main from './main';
 
