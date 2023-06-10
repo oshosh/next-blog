@@ -1,4 +1,4 @@
-import { PostsCategory } from '@/components/ui';
+import PostsCategory from '@/components/category/PostsCategory';
 import { getPosts } from 'service/posts';
 
 async function PostsPage() {
