@@ -1,5 +1,4 @@
 import { getPosts } from 'service/posts';
-import PostCardGridWrapper from './PostCardGridWrapper';
 import PostsCard from './PostsCard';
 
 async function PostContent() {
@@ -9,12 +8,8 @@ async function PostContent() {
   return (
     <section>
       <h2 className='text-xl font-bold mb-2'>Featured Posts</h2>
-
-      <PostCardGridWrapper>
-        {filterPosts.map((post) => {
-          return <PostsCard key={post.title} cardItem={post} />;
-        })}
-      </PostCardGridWrapper>
+      {/* @ts-expect-error Async Server Component */}
+      <PostsCard posts={filterPosts} />
     </section>
   );
 }

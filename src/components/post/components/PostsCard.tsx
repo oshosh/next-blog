@@ -1,26 +1,19 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { Posts } from 'service/posts';
-import PostCardWrapper from './PostCardWrapper';
+import PostCardGridWrapper from './PostCardGridWrapper';
 import PostItem from './PostItem';
 
-interface Props {
-  cardItem: Posts;
-}
+type Props = {
+  posts: Posts[];
+};
 
-function PostsCard({ cardItem }: Props) {
-  const { category, path } = cardItem;
-
+async function PostsCard({ posts }: Props) {
   return (
     <>
-      <PostCardWrapper>
-        <Link href={`/posts/${path}`}>
-          <article className='rounded-md overflow-hidden shadow-lg'>
-            <Image width={999} height={200} alt={category} src={`/images/posts/${path}.png`} />
-            <PostItem cardItem={cardItem} />
-          </article>
-        </Link>
-      </PostCardWrapper>
+      <PostCardGridWrapper>
+        {posts.map((post) => {
+          return <PostItem key={post.title} {...post} />;
+        })}
+      </PostCardGridWrapper>
     </>
   );
 }

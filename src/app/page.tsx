@@ -6,7 +6,6 @@ async function HomePage() {
   return (
     <>
       <Profile />
-      {/* https://github.com/vercel/next.js/issues/42292 */}
       {/* @ts-expect-error Async Server Component */}
       <PostContent />
       {/* @ts-expect-error Async Server Component */}
