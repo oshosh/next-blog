@@ -1,22 +1,33 @@
+'use client';
+import { useMemo } from 'react';
+
 type Props = {
   selectItem: string;
   handleClick: (item: string) => void;
 };
+
 function Categories({ selectItem, handleClick }: Props) {
+  const selectCategoryStyle = useMemo(
+    () => (category: string) => {
+      return selectItem === category ? 'text-cyan-500' : '';
+    },
+    [selectItem]
+  );
+
   return (
-    <div className='flex flex-col items-center p-7 '>
+    <div className='flex flex-col items-center p-7'>
       <div className='font-bold text-xl underline underline-offset-8 decoration-blue-500'>
         Category
       </div>
 
       <ul>
-        {['All Posts', 'my story', 'frontend', 'backend', 'javascript'].map((item) => (
+        {['All Posts', 'my story', 'frontend', 'backend', 'javascript'].map((category) => (
           <li
-            key={item}
-            onClick={(_) => handleClick(item)}
-            className={`hover:text-blue-700 ${selectItem === item ? 'text-cyan-500' : ''}`}
+            key={category}
+            onClick={() => handleClick(category)}
+            className={`cursor-pointer hover:text-blue-700 ${selectCategoryStyle(category)}`}
           >
-            {item}
+            {category}
           </li>
         ))}
       </ul>
