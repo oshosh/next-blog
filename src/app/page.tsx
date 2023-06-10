@@ -1,6 +1,6 @@
-import CarouselPost from '@/components/like/CarouselPost';
-import PostFeature from '@/components/post/PostFeature';
-import Profile from '@/components/Profile';
+import CarouselPost from '@/components/carousel/components/CarouselPost';
+import PostContent from '@/components/post/components/PostContent';
+import { Profile } from '@/components/ui';
 
 async function HomePage() {
   return (
@@ -8,7 +8,7 @@ async function HomePage() {
       <Profile />
       {/* https://github.com/vercel/next.js/issues/42292 */}
       {/* @ts-expect-error Async Server Component */}
-      <PostFeature />
+      <PostContent />
       {/* @ts-expect-error Async Server Component */}
       <CarouselPost />
     </>

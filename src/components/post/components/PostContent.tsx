@@ -1,8 +1,8 @@
-import Grid from '@/components/Grid';
 import { getPosts } from 'service/posts';
-import PostsCardItem from './PostsCardItem';
+import PostCardGridWrapper from './PostCardGridWrapper';
+import PostsCard from './PostsCard';
 
-async function PostFeature() {
+async function PostContent() {
   const posts = await getPosts();
   const filterPosts = posts.filter(({ featured }) => featured);
 
@@ -10,13 +10,13 @@ async function PostFeature() {
     <section>
       <h2 className='text-xl font-bold mb-2'>Featured Posts</h2>
 
-      <Grid>
+      <PostCardGridWrapper>
         {filterPosts.map((post) => {
-          return <PostsCardItem key={post.title} cardItem={post} />;
+          return <PostsCard key={post.title} cardItem={post} />;
         })}
-      </Grid>
+      </PostCardGridWrapper>
     </section>
   );
 }
 
-export default PostFeature;
+export default PostContent;

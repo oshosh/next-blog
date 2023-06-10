@@ -4,7 +4,7 @@ interface Props {
   cardItem: Posts;
 }
 
-function PostContent({ cardItem }: Props) {
+function PostItem({ cardItem }: Props) {
   const { category, title, description, date } = cardItem;
 
   return (
@@ -17,4 +17,4 @@ function PostContent({ cardItem }: Props) {
   );
 }
 
-export default PostContent;
+export default PostItem;
