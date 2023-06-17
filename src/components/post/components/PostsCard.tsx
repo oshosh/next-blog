@@ -2,9 +2,9 @@ import { Posts } from 'service/posts';
 import PostCardGridWrapper from './PostCardGridWrapper';
 import PostItem from './PostItem';
 
-type Props = {
+interface Props {
   posts: Posts[];
-};
+}
 
 async function PostsCard({ posts }: Props) {
   return (

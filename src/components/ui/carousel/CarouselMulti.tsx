@@ -2,7 +2,9 @@
 import Carousel from 'react-multi-carousel';
 import { RESPONSIVE } from './constants';
 
-type Props = { children: React.ReactNode };
+interface Props {
+  children: React.ReactNode;
+}
 
 function CarouselMulti({ children }: Props) {
   return (

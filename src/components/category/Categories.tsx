@@ -1,10 +1,10 @@
 'use client';
 import { useMemo } from 'react';
 
-type Props = {
+interface Props {
   selectItem: string;
   handleClick: (item: string) => void;
-};
+}
 
 function Categories({ selectItem, handleClick }: Props) {
   const selectCategoryStyle = useMemo(

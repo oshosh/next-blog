@@ -5,9 +5,9 @@ import { PostCardGridWrapper } from '../post';
 import PostItem from '../post/components/PostItem';
 import Categories from './Categories';
 
-type Props = {
+interface Props {
   posts: Posts[];
-};
+}
 
 function PostsCategory({ posts }: Props) {
   const { selectItem, filterPosts, handleClick } = useFilteredPosts(posts);
