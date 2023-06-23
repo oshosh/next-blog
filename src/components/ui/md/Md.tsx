@@ -2,6 +2,7 @@
 
 import { GrayMatterFile } from 'gray-matter';
 import Image from 'next/image';
+import { HTMLAttributes } from 'react';
 import { Components } from 'react-markdown';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -10,9 +11,10 @@ import remarkGfm from 'remark-gfm';
 
 interface Props {
   markdown: GrayMatterFile<string>['content'];
+  style?: HTMLAttributes<HTMLElement>['className'];
 }
 
-function Md({ markdown }: Props) {
+function Md({ markdown, style }: Props) {
   const components: Components = {
     code({ node, inline, className, children, ...props }) {
       const match = /language-(\w+)/.exec(className || '');
@@ -39,7 +41,7 @@ function Md({ markdown }: Props) {
   return (
     <ReactMarkdown
       children={markdown}
-      className='prose lg:prose-xl w-full max-w-screen-2xl mx-auto'
+      className={`prose lg:prose-xl w-full max-w-screen-2xl mx-auto ${style}`}
       remarkPlugins={[remarkGfm]}
       components={components}
     />
