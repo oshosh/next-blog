@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Nullable, Posts } from '../@types';
 
 interface Props {
@@ -12,9 +13,9 @@ function NavigatePostCard({ post, isPrevious, cardSize }: Props) {
   const alignmentClass = isPrevious ? 'left' : 'right';
 
   return (
-    <Link href={`/posts/${post?.path}`} className={`${cardSize} relative`}>
+    <Link href={`/posts/${post?.path}`} className={`${cardSize} relative bg-black`}>
       <Image
-        className='object-cover h-36 bg-blend-darken'
+        className='object-cover h-36 opacity-40'
         alt={post?.title || ''}
         src={`/images/posts/${post?.path}.png`}
         width={9999}
@@ -25,7 +26,11 @@ function NavigatePostCard({ post, isPrevious, cardSize }: Props) {
           alignmentClass === 'left' ? 'ml-20' : 'mr-20'
         }`}
       >
-        화살표
+        {alignmentClass === 'left' ? (
+          <FaArrowLeft className='text-2xl text-yellow-500' />
+        ) : (
+          <FaArrowRight className='text-2xl text-yellow-500' />
+        )}
       </div>
       <div
         className={`absolute inset-y-0 ${
