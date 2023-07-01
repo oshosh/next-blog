@@ -1,22 +1,12 @@
-import { promises, readdirSync, readFileSync } from 'fs';
+import { Nullable, Posts } from '@/components/post/@types';
+import { promises, readFileSync, readdirSync } from 'fs';
 import matter, { GrayMatterFile } from 'gray-matter';
 import path from 'path';
-
-export interface Posts {
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  path: string;
-  featured: boolean;
-}
 
 export interface Md {
   id: string;
   md: GrayMatterFile<string>;
 }
-
-type NullAbleMd<T> = T | null;
 
 export async function getPosts(): Promise<Posts[]> {
   const filePath = path.join(process.cwd(), 'data', 'posts.json');
@@ -26,7 +16,7 @@ export async function getPosts(): Promise<Posts[]> {
     .then((posts) => posts.sort((a, b) => (a.date > b.date ? -1 : 1)));
 }
 
-export function getMarkdown(pathUrl: string): NullAbleMd<Md> {
+export function getMarkdown(pathUrl: string): Nullable<Md> {
   const postsDirectory = path.join(process.cwd(), 'data/posts');
   const fileNames = readdirSync(postsDirectory);
 
