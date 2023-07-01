@@ -1,6 +1,7 @@
 import PostMarkdownContent from '@/components/post/components/PostMarkdownContent';
 import PostNavigator from '@/components/post/components/PostNavigator';
 import { Md } from '@/components/ui';
+import useNavigatorData from '@/hooks/useNavigatePost';
 import { getMarkdown, getPosts } from 'service/posts';
 
 interface Props {
@@ -14,15 +15,7 @@ async function PostPage({ params: { slug } }: Props) {
   const posts = await getPosts();
   const findCurrentContents = posts.find(({ path }) => path === slug);
 
-  const currentIndex = posts.findIndex((post) => post.path === slug);
-
-  const previousPage = currentIndex > 0 ? posts[currentIndex - 1] : null;
-  const nextPage = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
-
-  const pageInfo = {
-    previousPage,
-    nextPage,
-  };
+  const pageInfo = useNavigatorData(posts, slug);
 
   if (!getData) return;
   else

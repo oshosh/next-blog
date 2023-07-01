@@ -1,5 +1,5 @@
+import { Posts } from '@/components/post/@types';
 import { useMemo, useState } from 'react';
-import { Posts } from 'service/posts';
 
 interface FilteredPosts {
   selectItem: string;
