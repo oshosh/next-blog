@@ -1,0 +1,14 @@
+{
+  "who": {
+    "title": "Who Am I?",
+    "contents": ["개발을 어쩌구....", "사람과 디자인 어쩌구........"]
+  },
+  "career": {
+    "title": "Career",
+    "contents": ["회사1", "회사2"]
+  },
+  "skills": {
+    "title": "Skills",
+    "contents": ["스킬1", "스킬2"]
+  }
+}

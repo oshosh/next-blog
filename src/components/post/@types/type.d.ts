@@ -8,3 +8,14 @@ export interface Posts {
   path: string;
   featured: boolean;
 }
+
+export interface Content {
+  title: string;
+  contents: string[];
+}
+
+export interface Info {
+  who: Content;
+  career: Content;
+  skills: Content;
+}

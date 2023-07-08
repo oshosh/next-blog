@@ -1,4 +1,4 @@
-import { Nullable, Posts } from '@/components/post/@types';
+import { Info, Nullable, Posts } from '@/components/post/@types';
 import { promises, readFileSync, readdirSync } from 'fs';
 import matter, { GrayMatterFile } from 'gray-matter';
 import path from 'path';
@@ -6,6 +6,14 @@ import path from 'path';
 export interface Md {
   id: string;
   md: GrayMatterFile<string>;
+}
+
+export async function getInfo(): Promise<Info> {
+  const filePath = path.join(process.cwd(), 'data', 'info.json');
+  return promises
+    .readFile(filePath, 'utf-8')
+    .then<Info>(JSON.parse)
+    .then((info) => info);
 }
 
 export async function getPosts(): Promise<Posts[]> {
