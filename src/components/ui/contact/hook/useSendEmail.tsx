@@ -12,7 +12,7 @@ const SEND = {
   message: '',
 };
 
-const useSendEmail = () => {
+const useSendEmail = (setBanner: any) => {
   const [send, setSend] = useState<Send>(SEND);
 
   const onChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -36,7 +36,10 @@ const useSendEmail = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(send);
+    setBanner({
+      message: '성공입니다.',
+      state: 'success',
+    });
   };
 
   return { send, onSubmit, onChange };
