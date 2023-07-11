@@ -33,8 +33,18 @@ const useSendEmail = (setBanner: any) => {
     }
   };
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // 인스턴스화 필요..
+    await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(send),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
 
     setBanner({
       message: '성공입니다.',
